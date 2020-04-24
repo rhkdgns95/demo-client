@@ -1,0 +1,62 @@
+{
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".ts",
+          ".tsx"
+        ]
+      }
+    }
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "react-hooks"
+  ],
+  "extends": [
+    "prettier",
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "globals": {
+    "document": true
+  },
+  "rules": {
+    "no-param-reassign": 1,
+    "react-hooks/rules-of-hooks": 0,
+    "react/destructuring-assignment": 0,
+    "max-classes-per-file": 0,
+    "@typescript-eslint/interface-name-prefix": 0,
+    "@typescript-eslint/no-empty-interface": 1,
+    "react/prop-types": 0,
+    "react/jsx-props-no-spreading": 0,
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "react/jsx-indent": 0,
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".ts",
+          ".tsx"
+        ]
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "tsx": "never",
+        "ts": "never"
+      }
+    ]
+  }
+}
