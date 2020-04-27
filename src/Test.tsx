@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Text from './Components/Text';
-import withHoc, { IHocProps } from './Hoc/withHoc';
+import withHoc, { IHocProps } from './Hocs/_withHocTemp';
 
 // import useProvider, { IContext } from './Hooks/useProvider';
 // import withHoc from './Hoc/withHoc';

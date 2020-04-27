@@ -29,12 +29,13 @@
     "document": true
   },
   "rules": {
+    "react/display-name": 0,
     "no-param-reassign": 1,
     "react-hooks/rules-of-hooks": 0,
     "react/destructuring-assignment": 0,
     "max-classes-per-file": 0,
     "@typescript-eslint/interface-name-prefix": 0,
-    "@typescript-eslint/no-empty-interface": 1,
+    "@typescript-eslint/no-empty-interface": 0,
     "react/prop-types": 0,
     "react/jsx-props-no-spreading": 0,
     "@typescript-eslint/explicit-function-return-type": 0,

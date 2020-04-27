@@ -1,11 +1,15 @@
 import React from 'react';
-import Test from './Test';
+import { BrowserRouter } from 'react-router-dom';
+import ManagerRoutes from './Routes/ManagerRoutes';
+import withHocApp from './Hocs/withHocApp';
 
-const App = () => (
-	<>
-		<div>hello</div>
-		<Test />
-	</>
+const App: React.FC = () => <AppPresenter />;
+
+const AppPresenter = () => (
+	<BrowserRouter>
+		{/* <div>hi</div> */}
+		<ManagerRoutes />
+	</BrowserRouter>
 );
 
-export default App;
+export default withHocApp(App);
