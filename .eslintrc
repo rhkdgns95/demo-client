@@ -29,6 +29,8 @@
     "document": true
   },
   "rules": {
+    "import/prefer-default-export": 0,
+    "no-console": 1,
     "react/display-name": 0,
     "no-param-reassign": 1,
     "react-hooks/rules-of-hooks": 0,
