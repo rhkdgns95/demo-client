@@ -1,16 +1,22 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import ManagerRoutes from './Routes/ManagerRoute';
-import withHocApp from './Hocs/withHocApp';
+import withHocApp from './hocs/withHocApp';
+import ManagerRoute from './routes/ManagerRoute';
+import LoggedOutRoute from './routes/LoggedOutRoute';
+// const ManagerRoute = React.lazy(() => import('./routes/ManagerRoute'));
+// const LoggedOutRoute = React.lazy(() => import('./routes/LoggedOutRoute'));
 
-// <예정> Login 과정
-const App: React.FC = () => <AppPresenter />;
-
-const AppPresenter = () => (
-	<BrowserRouter>
-		{/* <div>hi</div> */}
-		<ManagerRoutes />
-	</BrowserRouter>
+const App: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => (
+	<BrowserRouter>{isLoggedIn ? <LoggedIn /> : <LoggedOut />}</BrowserRouter>
 );
+
+/**
+ *  로그인의 경우,
+ *  4개의 앱으로 분리
+ */
+const LoggedIn = () => <ManagerRoute />;
+
+// 로그아웃의 경우,
+const LoggedOut = () => <LoggedOutRoute />;
 
 export default withHocApp(App);
