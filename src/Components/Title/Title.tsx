@@ -1,14 +1,16 @@
 import React from 'react';
-import { useHocAppContext } from '../../Hocs/withHocApp';
-import { useHocManagerContext } from '../../Hocs/withHocManager';
+import { useHocAppContext } from '../../withApp';
+import { useManagerHocContext } from '../../apps/manager/withManager';
 
 const Title = () => {
 	const { pageTitle } = useHocAppContext();
-	const { name } = useHocManagerContext();
+	const {
+		all: { name },
+	} = useManagerHocContext();
 	return (
 		<h5>
 			pageTitle:
-			{pageTitle} / name:
+			{pageTitle}/ name:
 			{name}
 		</h5>
 	);

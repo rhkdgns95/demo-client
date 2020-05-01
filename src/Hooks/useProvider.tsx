@@ -1,4 +1,4 @@
-import React from 'react';
+import React from '../src/hooks/node_modules/react';
 
 export interface IContext {}
 export interface IValue {}
