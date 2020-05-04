@@ -1,13 +1,13 @@
 import React, { Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import withManagerHoc from './withManager';
+import withManager from '../../hocs/withManager';
 // import Home from '../containers/manager/Home';
 // import About from '../containers/manager/About';
 /* 코드 스플릿팅 (참고: https://flaviocopes.com/react-code-splitting/) */
-const Home = React.lazy(() => import('./routes/Home'));
-const About = React.lazy(() => import('./routes/About'));
+const Home = React.lazy(() => import('./Routes/Home'));
+const About = React.lazy(() => import('./Routes/About'));
 
-export const ManagerApp: React.FC = () => (
+const ManagerApp: React.FC = () => (
 	<Suspense fallback={<p>Loading...</p>}>
 		<Switch>
 			<Route path="/" component={Home} exact />
@@ -17,4 +17,4 @@ export const ManagerApp: React.FC = () => (
 	</Suspense>
 );
 
-export default withManagerHoc(ManagerApp);
+export default withManager(ManagerApp);

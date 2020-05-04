@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAllPostsQuery } from '../../../../generated/graphql';
-import { useHocAppContext } from '../../../../withApp';
-import { useManagerHocContext } from '../../withManager';
+import { useAppContext } from '../../../../hocs/withApp';
 import Title from '../../../../components/Title';
+import { useManagerAppContext } from '../../../../hocs/withManager';
 
 interface IProps {}
 
@@ -18,12 +18,10 @@ const GetPosts = () => {
 };
 
 const Home: React.FC<IProps> = () => {
-	const { pageTitle, onChangeTitle } = useHocAppContext();
-	const { all, home } = useManagerHocContext();
-	const { name } = all;
-
-	console.log('useFetchHome: ', home);
-
+	const { pageTitle, onChangeTitle } = useAppContext();
+	const { common, home } = useManagerAppContext();
+	const { name } = common;
+	const { age: homeAge, name: homeName, onChangeAge, onChangeName } = home;
 	useEffect(() => {
 		return () => {
 			/**
@@ -37,16 +35,16 @@ const Home: React.FC<IProps> = () => {
 	return (
 		<>
 			homeName:
-			{home.name}
+			{homeName}
 			homeAge:
-			{home.age}
-			<button type="button" onClick={home.onChangeName}>
+			{homeAge}
+			<button type="button" onClick={() => onChangeName()}>
 				이름변경(home속성)
 			</button>
-			<button type="button" onClick={() => home.onChangeAge(home.age + 1)}>
+			<button type="button" onClick={() => onChangeAge(homeAge + 1)}>
 				나이변경(home속성)
 			</button>
-			<button onClick={onChangeTitle} type="button">
+			<button type="button" onClick={onChangeTitle}>
 				change(App속성)
 			</button>
 			<p>

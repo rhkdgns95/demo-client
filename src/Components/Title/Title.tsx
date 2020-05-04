@@ -1,12 +1,10 @@
 import React from 'react';
-import { useHocAppContext } from '../../withApp';
-import { useManagerHocContext } from '../../apps/manager/withManager';
+import { useManagerAppContext } from '../../hocs/withManager';
+import { useAppContext } from '../../AppStore';
 
 const Title = () => {
-	const { pageTitle } = useHocAppContext();
-	const {
-		all: { name },
-	} = useManagerHocContext();
+	const { pageTitle } = useAppContext();
+	const { name } = useManagerAppContext().common;
 	return (
 		<h5>
 			pageTitle:

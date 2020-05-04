@@ -3,6 +3,9 @@
 
 
 ## Todo
+- [x] useProvider part1 (상위 컴포넌트를 호출하여, Wrapped Component에 상태 값 공유)
+- [ ] useProvider part2 (컴포넌트에 args값도 함께 전달하기)
+
 - [ ] 중첩된 Raect.Suspense를 사용.
 
 ## Study

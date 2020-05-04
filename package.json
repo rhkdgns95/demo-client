@@ -10,9 +10,13 @@
     "apollo-boost": "^0.4.7",
     "apollo-cache-inmemory": "^1.6.5",
     "apollo-client": "^2.6.4",
+    "apollo-link": "^1.2.14",
+    "apollo-link-error": "^1.1.13",
     "apollo-link-http": "^1.5.17",
+    "apollo-link-token-refresh": "^0.2.7",
     "axios": "^0.19.2",
     "graphql": "^14.3.1",
+    "graphql-tag": "^2.10.3",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-router-dom": "^5.1.2",
@@ -44,8 +48,9 @@
   },
   "scripts": {
     "dev": "rm -rf ./dist && parcel -p 3000 public/index.html --open",
-    "prettier": "prettier --write --config ./.prettierrc ./src/**/*.*",
-    "lint": "eslint ./src/**/*.*",
-    "lint:fix": "eslint --fix ./src/**/*.*"
+    "prettier": "prettier --write --config ./.prettierrc ./src/**/*.{ts,tsx}",
+    "lint": "eslint ./src/**/*.{ts,tsx}",
+    "lint:fix": "eslint --fix ./src/**/*.*",
+    "codegen": "graphql-codegen --config codegen.yml"
   }
 }

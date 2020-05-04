@@ -1,26 +1,37 @@
-import React from '../src/hooks/node_modules/react';
+import React, { createContext, useContext } from 'react';
 
-export interface IContext {}
-export interface IValue {}
-interface IProviderArguments {
-	useFetch: () => {
-		value: IValue;
-	};
-	initContext: IContext;
+export interface IBaseContext<T> {
+	initContext: T;
+	useFetch: () => { value: T };
 }
-const useProvider = (args: IProviderArguments) => {
-	const { useFetch, initContext } = args;
 
-	const Context: React.Context<IContext> = React.createContext(initContext);
-	const useContext = (): IContext => React.useContext<IContext>(Context);
-	const Provider: React.FC = ({ children }) => (
-		<Context.Provider {...useFetch()}>{children}</Context.Provider>
+/**
+ *  useProvider:
+ *
+ *  @param args:
+ *  - args.initContext: 초기의 Context값
+ *  - args.useFetch: 앱의 상태 값들.
+ */
+export function useProvider<IContextType>(args: IBaseContext<IContextType>) {
+	const { initContext, useFetch } = args;
+	const BaseContext: React.Context<IContextType> = createContext<IContextType>(
+		initContext
 	);
 
-	return {
-		Provider,
-		useContext,
-	};
-};
+	const useBaseContext = () => useContext<IContextType>(BaseContext);
 
-export default useProvider;
+	const withHoc = (WrappedComponent: React.FC): React.FC => {
+		const Hoc: React.FC = (props) => (
+			<BaseContext.Provider {...useFetch()}>
+				<WrappedComponent {...props} />
+			</BaseContext.Provider>
+		);
+
+		return () => <Hoc />;
+	};
+
+	return {
+		useBaseContext,
+		withHoc,
+	};
+}

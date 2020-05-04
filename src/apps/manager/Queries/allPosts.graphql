@@ -1,0 +1,7 @@
+query AllPosts($first: Int!) {
+  allPosts(first: $first) {
+    id
+    createdAt
+    title
+  }
+}
