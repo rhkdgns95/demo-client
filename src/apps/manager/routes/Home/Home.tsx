@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAllPostsQuery } from '../../../../generated/graphql';
-import { useAppContext } from '../../../../hocs/withApp';
 import Title from '../../../../components/Title';
-import { useManagerAppContext } from '../../../../hocs/withManager';
+import { useManagerContext } from '../../ManagerStore';
+import { useAppContext } from '../../../../AppStore';
 
 interface IProps {}
 
@@ -19,7 +19,7 @@ const GetPosts = () => {
 
 const Home: React.FC<IProps> = () => {
 	const { pageTitle, onChangeTitle } = useAppContext();
-	const { common, home } = useManagerAppContext();
+	const { common, home } = useManagerContext();
 	const { name } = common;
 	const { age: homeAge, name: homeName, onChangeAge, onChangeName } = home;
 	useEffect(() => {

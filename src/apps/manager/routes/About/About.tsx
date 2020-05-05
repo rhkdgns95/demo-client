@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useManagerAppContext } from '../../../../hocs/withManager';
 import './About.css';
+import { useManagerContext } from '../../ManagerStore';
 
 interface IProps {}
 
 const About: React.FC<IProps> = () => {
-	const { common, home } = useManagerAppContext();
+	const { common, home } = useManagerContext();
 	
 	console.log('home: ', home);
 	const { onChangeName } = common;

@@ -4,7 +4,7 @@ import Home from './Routes/Home';
 import About from './Routes/About';
 import { withPartner } from './PartnerStore';
 
-const PartnerApp = () => (
+const PartnerApp: React.FC = () => (
 	<>
 		<ul>
 			<li>

@@ -28,7 +28,7 @@ interface IContext {
 	home: IHome;
 }
 
-const PartnerContext: IContext = {
+const initContext: IContext = {
 	common: {
 		age: 3,
 	},
@@ -59,7 +59,7 @@ const useHomeFetch = (): IHome => {
 	};
 };
 
-const usePartnerFetch = (): { value: IContext } => {
+const useFetch = (): { value: IContext } => {
 	const common = useCommonFetch();
 	const home = useHomeFetch();
 
@@ -72,8 +72,8 @@ const usePartnerFetch = (): { value: IContext } => {
 };
 
 const PartnerStore: IBaseContext<IContext> = {
-	initContext: PartnerContext,
-	useFetch: usePartnerFetch,
+	initContext,
+	useFetch,
 };
 
 export default PartnerStore;

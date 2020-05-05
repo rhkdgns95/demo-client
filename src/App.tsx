@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 // import ManagerApp from './apps/manager';
 import { withAppHoc } from './AppStore';
+// import PartnerApp from './apps/partner/PartnerApp';
 import ManagerApp from './apps/manager';
 // const ManagerRoute = React.lazy(() => import('./routes/ManagerRoute'));
 // const LoggedOutRoute = React.lazy(() => import('./routes/LoggedOutRoute'));
